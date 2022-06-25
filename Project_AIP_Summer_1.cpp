@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<fstream>
 using namespace std;
-class deadline{
+class deadline{ //класс дедлайн. Содержит информацию о предмете, дате и дополнительной информации о дедлайне
 private:
 	char *subject, *date, *info;
 public:
@@ -22,7 +22,7 @@ public:
 	int search_date(char[]);
 	int search_subj(char[]);
 };
-void deadline::feeddata() {
+void deadline::feeddata() {//запрашивает у пользователя информацию о дедлайне
 	cin.ignore();
 	cout << "\nEnter subject: ";      
 	cin.getline(subject, 20);
@@ -31,7 +31,7 @@ void deadline::feeddata() {
 	cout << "Enter add.info: ";   
 	cin.getline(info, 40);
 }
-void deadline::editdata() {
+void deadline::editdata() {//переписывает имеющуюся информацию о дедлайне
 	cout << "\nEnter subject: ";
 	cin.getline(subject, 20);
 	cout << "Enter date (dd.mm): ";
@@ -39,31 +39,31 @@ void deadline::editdata() {
 	cout << "Enter add. info: ";
 	cin.getline(info, 40);
 }
-void deadline::showdata() {
+void deadline::showdata() {//показывает информацию о дедлайне
 	cout << "\nSubject: " << subject;
 	cout << "\nDate: " << date;
 	cout << "\nAdd. info: " << info;
 }
-string deadline::getdata_subj() {
+string deadline::getdata_subj() {//возвращает информацию о предмете
 	return subject;
 }
-string deadline::getdata_date() {
+string deadline::getdata_date() {//возвращает информацию о дате
 	return date;
 }
-string deadline::getdata_info() {
+string deadline::getdata_info() {//возвращает информацию о дополнительной информации
 	return info;
 }
-int deadline::search(char sdelete[20], char ddelete[20]) {
+int deadline::search(char sdelete[20], char ddelete[20]) {//ищет информацию о дедлайне, возвращает либо 1, если текущий дедлайн подходит, либо 0 в противном случае
 	if (strcmp(sdelete, subject) == 0 && strcmp(ddelete, date) == 0)
 		return 1;
 	else return 0;
 }
-int deadline::search_subj(char sdelete[20]) {
+int deadline::search_subj(char sdelete[20]) {//аналогично, но только по предмету
 	if (strcmp(sdelete, subject) == 0)
 		return 1;
 	else return 0;
 }
-int deadline::search_date(char ddelete[20]) {
+int deadline::search_date(char ddelete[20]) {//аналогично, но только по дате
 	if (strcmp(ddelete, date) == 0)
 		return 1;
 	else return 0;
